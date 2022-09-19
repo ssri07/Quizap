@@ -45,6 +45,34 @@ export default function App() {
     );
   }, [quizData]);
 
+  function shuffle(arr) {
+    let currentIndex = arr.length,
+      randomIndex;
+
+    while (currentIndex != 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [arr[currentIndex], arr[randomIndex]] = [
+        arr[randomIndex],
+        arr[currentIndex],
+      ];
+    }
+
+    return arr;
+  }
+
+  const shuffleOptions = useCallback(() => {
+    setQuizObject((prevObject) =>
+      prevObject.map((object) => {
+        const shuffledOptionsArray = shuffle(object.options);
+        return { ...object, options: shuffledOptionsArray };
+      })
+    );
+  }, []);
+
   function resetOptionState(id) {
     setQuizObject((prevObject) =>
       prevObject.map((object) =>
@@ -75,7 +103,7 @@ export default function App() {
 
   return (
     <section className="app bg-[#eff2f9] text-[#293264] h-auto">
-      <Start startQuiz={startQuiz} />
+      <Start startQuiz={startQuiz} shuffleOptions={shuffleOptions} />
       <Quiz quizObject={quizObject} toggleIsPicked={toggleIsPicked} />
     </section>
   );
