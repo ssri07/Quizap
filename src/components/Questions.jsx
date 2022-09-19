@@ -1,4 +1,4 @@
-export default function Questions({ question, options, no, id, pick }) {
+export default function Questions({ question, options, no, id, pick, update }) {
   const optionButtons = options.map((option, i) => {
     const styles = {
       backgroundColor: option.isPicked ? "#D6DBF5" : "",
@@ -8,7 +8,10 @@ export default function Questions({ question, options, no, id, pick }) {
       <button
         key={option.id}
         style={styles}
-        onClick={() => pick(option.id, id)}
+        onClick={() => {
+          pick(option.id, id);
+          update(no - 1, option.option);
+        }}
         className="font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
       >
         {option.option}

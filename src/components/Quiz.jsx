@@ -1,6 +1,12 @@
 import Questions from "./Questions";
 
-export default function Quiz({ quizObject, toggleIsPicked }) {
+export default function Quiz({
+  quizObject,
+  toggleIsPicked,
+  updatePlayersAnswers,
+  gradePlayer,
+  score,
+}) {
   function questionElement() {
     return quizObject.map((question, i) => (
       <Questions
@@ -8,6 +14,7 @@ export default function Quiz({ quizObject, toggleIsPicked }) {
         {...question}
         no={i + 1}
         pick={toggleIsPicked}
+        update={updatePlayersAnswers}
       />
     ));
   }
@@ -20,9 +27,12 @@ export default function Quiz({ quizObject, toggleIsPicked }) {
         </div>
         <div className="submit h-1/6 flex items-center justify-center space-x-5 shadow-2xl">
           <span className="font-inter font-medium text-base leading-4">
-            You scored 3/5 correct answers
+            You scored {score}/{quizObject.length} correct answers
           </span>
-          <button className="bg-[#4D5B9E] px-6 py-3 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]">
+          <button
+            onClick={gradePlayer}
+            className="bg-[#4D5B9E] px-6 py-3 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
+          >
             Check Answers
           </button>
         </div>

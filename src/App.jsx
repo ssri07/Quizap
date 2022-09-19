@@ -6,6 +6,9 @@ import Quiz from "./components/Quiz";
 export default function App() {
   const [quizData, setQuizData] = useState([]);
   const [quizObject, setQuizObject] = useState([]);
+  const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [playersAnswers, setPlayersAnswers] = useState([]);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     async function getQuestions() {
@@ -17,6 +20,17 @@ export default function App() {
     }
     getQuestions();
   }, []);
+
+  useEffect(() => {
+    setCorrectAnswers(quizData.map((quiz) => quiz.correct_answer));
+  }, [quizData]);
+
+  useEffect(() => {
+    setPlayersAnswers(quizData.map((quiz, i) => ({ [`answer${i + 1}`]: "" })));
+  }, [quizData]);
+  console.log(correctAnswers);
+  console.log(playersAnswers);
+  console.log(score);
 
   const startQuiz = useCallback(() => {
     setQuizObject(
@@ -89,6 +103,14 @@ export default function App() {
     );
   }
 
+  const updatePlayersAnswers = useCallback((no, value) => {
+    setPlayersAnswers((prevAnswers) =>
+      prevAnswers.map((answer, i) =>
+        i === no ? { [`answer${no + 1}`]: value } : { ...answer }
+      )
+    );
+  }, []);
+
   const toggleIsPicked = useCallback((id, questionId) => {
     resetOptionState(questionId);
     setQuizObject((prevObject) =>
@@ -101,10 +123,28 @@ export default function App() {
     );
   }, []);
 
+  const gradePlayer = useCallback(() => {
+    setScore(() => {
+      let grade = 0;
+      quizData.forEach((question, i) => {
+        if (playersAnswers[i][`answer${i + 1}`] === correctAnswers[i]) {
+          grade++;
+        }
+      });
+      return grade;
+    });
+  }, [quizObject, playersAnswers, correctAnswers]);
+
   return (
     <section className="app bg-[#eff2f9] text-[#293264] h-auto">
       <Start startQuiz={startQuiz} shuffleOptions={shuffleOptions} />
-      <Quiz quizObject={quizObject} toggleIsPicked={toggleIsPicked} />
+      <Quiz
+        quizObject={quizObject}
+        toggleIsPicked={toggleIsPicked}
+        updatePlayersAnswers={updatePlayersAnswers}
+        gradePlayer={gradePlayer}
+        score={score}
+      />
     </section>
   );
 }
