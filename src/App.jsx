@@ -45,25 +45,33 @@ export default function App() {
     );
   }, [quizData]);
 
-  const toggleIsPicked = useCallback(
-    (id, option) => {
-      setQuizObject(
-        quizObject.map((object) => {
-          object.options.map((option, i) =>
-            option.id === id
-              ? {
-                  ...object,
-                  [object.options[i].isPicked]: !object.options[i].isPicked,
-                }
-              : object
-          );
-        })
-      );
+  function resetOptionState(id) {
+    setQuizObject((prevObject) =>
+      prevObject.map((object) =>
+        object.id === id
+          ? {
+              ...object,
+              options: object.options.map((option) => ({
+                ...option,
+                isPicked: false,
+              })),
+            }
+          : object
+      )
+    );
+  }
 
-      console.log(`Change your fucking color now! ${option}:${id}`);
-    },
-    [quizObject]
-  );
+  const toggleIsPicked = useCallback((id, questionId) => {
+    resetOptionState(questionId);
+    setQuizObject((prevObject) =>
+      prevObject.map((object) => ({
+        ...object,
+        options: object.options.map((option) =>
+          option.id === id ? { ...option, isPicked: true } : option
+        ),
+      }))
+    );
+  }, []);
 
   return (
     <section className="app bg-[#eff2f9] text-[#293264] h-auto">
