@@ -6,6 +6,7 @@ export default function Quiz({
   updatePlayersAnswers,
   gradePlayer,
   score,
+  error,
 }) {
   function questionElement() {
     return quizObject.map((question, i) => (
@@ -25,16 +26,26 @@ export default function Quiz({
         <div className="h-5/6 flex flex-col overflow-y-auto space-y-5 px-20 py-8">
           {questionElement()}
         </div>
-        <div className="submit h-1/6 flex items-center justify-center space-x-5 shadow-2xl">
-          <span className="font-inter font-medium text-base leading-4">
-            You scored {score}/{quizObject.length} correct answers
-          </span>
-          <button
-            onClick={gradePlayer}
-            className="bg-[#4D5B9E] px-6 py-3 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
-          >
-            Check Answers
-          </button>
+        <div className="h-1/6 flex flex-col justify-around items-center shadow-2xl">
+          <div className="submit space-x-5">
+            <span className="font-inter font-medium text-base leading-4">
+              You scored {score}/{quizObject.length} correct answers
+            </span>
+            <button
+              onClick={gradePlayer}
+              className="bg-[#4D5B9E] px-6 py-3 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
+            >
+              Check Answers
+            </button>
+          </div>
+          {error && (
+            <p className="text-red-500 font-karla font-bold text-sm">
+              🚩Please ensure that you answered all questions.
+            </p>
+          )}
+          <p className="font-inter font-normal text-base leading-4">
+            Built with 💪🏻 by Abdul
+          </p>
         </div>
       </div>
     </section>

@@ -9,6 +9,7 @@ export default function App() {
   const [correctAnswers, setCorrectAnswers] = useState([]);
   const [playersAnswers, setPlayersAnswers] = useState([]);
   const [score, setScore] = useState(0);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function getQuestions() {
@@ -28,9 +29,10 @@ export default function App() {
   useEffect(() => {
     setPlayersAnswers(quizData.map((quiz, i) => ({ [`answer${i + 1}`]: "" })));
   }, [quizData]);
-  console.log(correctAnswers);
-  console.log(playersAnswers);
-  console.log(score);
+
+  // console.log(correctAnswers);
+  // console.log(playersAnswers);
+  // console.log(score);
 
   const startQuiz = useCallback(() => {
     setQuizObject(
@@ -103,13 +105,16 @@ export default function App() {
     );
   }
 
-  const updatePlayersAnswers = useCallback((no, value) => {
-    setPlayersAnswers((prevAnswers) =>
-      prevAnswers.map((answer, i) =>
-        i === no ? { [`answer${no + 1}`]: value } : { ...answer }
-      )
-    );
-  }, []);
+  const updatePlayersAnswers = useCallback(
+    (no, value) => {
+      setPlayersAnswers((prevAnswers) =>
+        prevAnswers.map((answer, i) =>
+          i === no ? { [`answer${no + 1}`]: value } : { ...answer }
+        )
+      );
+    },
+    [playersAnswers]
+  );
 
   const toggleIsPicked = useCallback((id, questionId) => {
     resetOptionState(questionId);
@@ -124,15 +129,23 @@ export default function App() {
   }, []);
 
   const gradePlayer = useCallback(() => {
-    setScore(() => {
-      let grade = 0;
-      quizData.forEach((question, i) => {
-        if (playersAnswers[i][`answer${i + 1}`] === correctAnswers[i]) {
-          grade++;
-        }
+    const allQuestionsAnswered = playersAnswers.every(
+      (answer, i, arr) => arr[i][`answer${i + 1}`] !== ""
+    );
+    if (allQuestionsAnswered) {
+      setError(false);
+      setScore(() => {
+        let grade = 0;
+        quizData.forEach((question, i) => {
+          if (playersAnswers[i][`answer${i + 1}`] === correctAnswers[i]) {
+            grade++;
+          }
+        });
+        return grade;
       });
-      return grade;
-    });
+    } else {
+      setError(true);
+    }
   }, [quizObject, playersAnswers, correctAnswers]);
 
   return (
@@ -144,6 +157,7 @@ export default function App() {
         updatePlayersAnswers={updatePlayersAnswers}
         gradePlayer={gradePlayer}
         score={score}
+        error={error}
       />
     </section>
   );
