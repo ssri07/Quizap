@@ -69,20 +69,32 @@ export default function App() {
         question: result.question,
         correct: result.correct_answer,
         options: [
-          { id: nanoid(), isPicked: false, option: result.correct_answer },
           {
             id: nanoid(),
             isPicked: false,
+            isCorrect: false,
+            isWrong: false,
+            option: result.correct_answer,
+          },
+          {
+            id: nanoid(),
+            isPicked: false,
+            isCorrect: false,
+            isWrong: false,
             option: result.incorrect_answers[0],
           },
           {
             id: nanoid(),
             isPicked: false,
+            isCorrect: false,
+            isWrong: false,
             option: result.incorrect_answers[1],
           },
           {
             id: nanoid(),
             isPicked: false,
+            isCorrect: false,
+            isWrong: false,
             option: result.incorrect_answers[2],
           },
         ],
@@ -161,18 +173,39 @@ export default function App() {
     );
   }, []);
 
+  const showAnswers = useCallback(() => {
+    setQuizObject((prevObject) =>
+      prevObject.map((object) => ({
+        ...object,
+        options: object.options.map((option) => {
+          if (!option.isPicked && option.option === object.correct) {
+            return { ...option, isCorrect: true };
+          } else if (option.isPicked && option.option === object.correct) {
+            return { ...option, isCorrect: true };
+          } else if (option.isPicked && option.option !== object.correct) {
+            return { ...option, isWrong: true };
+          } else {
+            return option;
+          }
+        }),
+      }))
+    );
+  }, [quizObject]);
+
   //Ensure that all questions have been answered. If so change the value of "quizzical" which will trigger "setScore".
   const gradePlayer = useCallback(() => {
     const allQuestionsAnswered = playersAnswers.every(
       (answer, i) => answer[`answer${i + 1}`] !== ""
     );
     if (allQuestionsAnswered) {
+      showAnswers();
       setError(false);
       setQuizzical(true);
     } else {
       setError(true);
     }
   }, [playersAnswers, error, quizzical]);
+  // console.log(quizObject);
 
   //Set "quizzical" to "false". This will trigger reset and reset the game.
   const playAgain = useCallback(() => {

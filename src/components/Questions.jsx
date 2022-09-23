@@ -1,7 +1,24 @@
-export default function Questions({ question, options, no, id, pick, update }) {
+export default function Questions({
+  question,
+  options,
+  no,
+  id,
+  pick,
+  update,
+  quizzical,
+}) {
   const optionButtons = options.map((option, i) => {
     const styles = {
-      backgroundColor: option.isPicked ? "#D6DBF5" : "",
+      backgroundColor:
+        !quizzical && option.isPicked
+          ? "#D6DBF5"
+          : quizzical && option.isCorrect
+          ? "#94D7A2"
+          : quizzical && option.isWrong
+          ? "#F8BCBC"
+          : "",
+      // backgroundColor: quizzical && option.isCorrect ? "green" : "",
+      // backgroundColor: quizzical && option.isWrong ? "#red" : "",
     };
 
     return (

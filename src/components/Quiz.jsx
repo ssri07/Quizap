@@ -18,6 +18,7 @@ export default function Quiz({
         no={i + 1}
         pick={toggleIsPicked}
         update={updatePlayersAnswers}
+        quizzical={quizzical}
       />
     ));
   }
