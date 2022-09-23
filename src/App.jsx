@@ -10,7 +10,11 @@ export default function App() {
   const [playersAnswers, setPlayersAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [error, setError] = useState(false);
+  const [quizzical, setQuizzical] = useState(false);
+  const [reset, setReset] = useState(false);
+  const [start, setStart] = useState(false);
 
+  //Make a call to the API; whenever "reset" changes make another call.
   useEffect(() => {
     async function getQuestions() {
       const res = await fetch(
@@ -20,25 +24,50 @@ export default function App() {
       setQuizData(data.results);
     }
     getQuestions();
+  }, [reset]);
+
+  //Start the game.
+  const startGame = useCallback(() => {
+    setStart((prevStart) => !prevStart);
   }, []);
 
+  //Extract the correct answers from the "quizObject" variable.
   useEffect(() => {
-    setCorrectAnswers(quizData.map((quiz) => quiz.correct_answer));
-  }, [quizData]);
+    setCorrectAnswers(quizObject.map((object) => object.correct));
+  }, [quizObject]);
 
+  //Whenever "quizData" changes, reset the players answers.
   useEffect(() => {
     setPlayersAnswers(quizData.map((quiz, i) => ({ [`answer${i + 1}`]: "" })));
   }, [quizData]);
 
-  // console.log(correctAnswers);
-  // console.log(playersAnswers);
-  // console.log(score);
+  //Whenever "quizzical" changes, check for how many of the player's answers matches the correct answers.
+  useEffect(() => {
+    setScore(() => {
+      let grade = 0;
+      correctAnswers.forEach((answer, i) => {
+        if (playersAnswers[i][`answer${i + 1}`] === answer) {
+          grade++;
+        }
+      });
+      return grade;
+    });
+  }, [quizzical]);
 
-  const startQuiz = useCallback(() => {
-    setQuizObject(
+  //Whenever "quizzical" changes, check if quizzical === false. If so change the value of reset which triggers a new call to the API.
+  useEffect(() => {
+    if (!quizzical) {
+      setReset((prevReset) => !prevReset);
+    }
+  }, [quizzical]);
+
+  //Extract the needed info from quizData whenever it changes.
+  useEffect(() => {
+    setQuizObject((prevObject) =>
       quizData.map((result) => ({
         id: nanoid(),
         question: result.question,
+        correct: result.correct_answer,
         options: [
           { id: nanoid(), isPicked: false, option: result.correct_answer },
           {
@@ -61,6 +90,7 @@ export default function App() {
     );
   }, [quizData]);
 
+  //Shuffle the options to be displayed.
   function shuffle(arr) {
     let currentIndex = arr.length,
       randomIndex;
@@ -87,8 +117,9 @@ export default function App() {
         return { ...object, options: shuffledOptionsArray };
       })
     );
-  }, []);
+  }, [quizObject]);
 
+  //Ensure that the player is only able to pick one answer.
   function resetOptionState(id) {
     setQuizObject((prevObject) =>
       prevObject.map((object) =>
@@ -105,6 +136,7 @@ export default function App() {
     );
   }
 
+  //Get the value of the answers the player picks then use it to update "playersAnswers".
   const updatePlayersAnswers = useCallback(
     (no, value) => {
       setPlayersAnswers((prevAnswers) =>
@@ -116,6 +148,7 @@ export default function App() {
     [playersAnswers]
   );
 
+  //Toggle the value of the "isPicked" property of the buttons.
   const toggleIsPicked = useCallback((id, questionId) => {
     resetOptionState(questionId);
     setQuizObject((prevObject) =>
@@ -128,37 +161,45 @@ export default function App() {
     );
   }, []);
 
+  //Ensure that all questions have been answered. If so change the value of "quizzical" which will trigger "setScore".
   const gradePlayer = useCallback(() => {
     const allQuestionsAnswered = playersAnswers.every(
-      (answer, i, arr) => arr[i][`answer${i + 1}`] !== ""
+      (answer, i) => answer[`answer${i + 1}`] !== ""
     );
     if (allQuestionsAnswered) {
       setError(false);
-      setScore(() => {
-        let grade = 0;
-        quizData.forEach((question, i) => {
-          if (playersAnswers[i][`answer${i + 1}`] === correctAnswers[i]) {
-            grade++;
-          }
-        });
-        return grade;
-      });
+      setQuizzical(true);
     } else {
       setError(true);
     }
-  }, [quizObject, playersAnswers, correctAnswers]);
+  }, [playersAnswers, error, quizzical]);
+
+  //Set "quizzical" to "false". This will trigger reset and reset the game.
+  const playAgain = useCallback(() => {
+    setQuizzical(false);
+    startGame();
+  }, [quizzical]);
 
   return (
     <section className="app bg-[#eff2f9] text-[#293264] h-auto">
-      <Start startQuiz={startQuiz} shuffleOptions={shuffleOptions} />
-      <Quiz
-        quizObject={quizObject}
-        toggleIsPicked={toggleIsPicked}
-        updatePlayersAnswers={updatePlayersAnswers}
-        gradePlayer={gradePlayer}
-        score={score}
-        error={error}
-      />
+      {/* Page to show when game hasn't started. */}
+      {!start && (
+        <Start startGame={startGame} shuffleOptions={shuffleOptions} />
+      )}
+
+      {/* Page to show when game starts. */}
+      {start && (
+        <Quiz
+          quizObject={quizObject}
+          toggleIsPicked={toggleIsPicked}
+          updatePlayersAnswers={updatePlayersAnswers}
+          gradePlayer={gradePlayer}
+          score={score}
+          error={error}
+          quizzical={quizzical}
+          playAgain={playAgain}
+        />
+      )}
     </section>
   );
 }

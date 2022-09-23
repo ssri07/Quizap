@@ -1,4 +1,4 @@
-export default function Start({ startQuiz, shuffleOptions }) {
+export default function Start({ startGame, shuffleOptions }) {
   return (
     <section className="start container m-auto h-screen bg-[#f0f4fc] shadow-2xl">
       <div className="h-full flex flex-col items-center justify-center space-y-5">
@@ -12,7 +12,7 @@ export default function Start({ startQuiz, shuffleOptions }) {
         </p>
         <button
           onClick={() => {
-            startQuiz();
+            startGame();
             shuffleOptions();
           }}
           className="bg-[#4D5B9E] px-10 py-3 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
