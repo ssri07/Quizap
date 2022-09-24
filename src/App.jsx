@@ -4,6 +4,13 @@ import Start from "./components/Start";
 import Quiz from "./components/Quiz";
 
 export default function App() {
+  const [api, setApi] = useState({
+    amount: "",
+    category: "",
+    difficulty: "",
+    // type: "",
+  });
+  const [generatedApi, setGeneratedApi] = useState(``);
   const [quizData, setQuizData] = useState([]);
   const [quizObject, setQuizObject] = useState([]);
   const [correctAnswers, setCorrectAnswers] = useState([]);
@@ -12,24 +19,54 @@ export default function App() {
   const [error, setError] = useState(false);
   const [quizzical, setQuizzical] = useState(false);
   const [reset, setReset] = useState(false);
+  const [cantStart, setCantStart] = useState();
   const [start, setStart] = useState(false);
 
   //Make a call to the API; whenever "reset" changes make another call.
   useEffect(() => {
     async function getQuestions() {
-      const res = await fetch(
-        "https://opentdb.com/api.php?amount=5&category=9&difficulty=hard&type=multiple"
-      );
+      const res = await fetch(generatedApi);
       const data = await res.json();
       setQuizData(data.results);
     }
     getQuestions();
   }, [reset]);
 
+  //Generate API based on the arear the player chooses.
+  const generateApi = useCallback(
+    (amount, category, difficulty, type) => {
+      setGeneratedApi(
+        `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
+      );
+    },
+    [generatedApi]
+  );
+
+  //Update "api" with the value the player chooses.
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setApi((prevApi) => ({ ...prevApi, [name]: value }));
+  }
+
+  //Check ia all fields in "api" have been provided. If so, call "generateApi"
+  function handleSubmit(event) {
+    event.preventDefault();
+    const isApiCorrect = Object.values(api).every((val) => val !== "");
+    if (isApiCorrect) {
+      setCantStart(false);
+      generateApi(api.amount, api.category, api.difficulty, api.type);
+    } else {
+      setCantStart(true);
+    }
+  }
   //Start the game.
   const startGame = useCallback(() => {
-    setStart((prevStart) => !prevStart);
-  }, []);
+    if (cantStart === false) {
+      setStart((prevStart) => !prevStart);
+    } else {
+      setCantStart(true);
+    }
+  }, [cantStart]);
 
   //Extract the correct answers from the "quizObject" variable.
   useEffect(() => {
@@ -54,12 +91,12 @@ export default function App() {
     });
   }, [quizzical]);
 
-  //Whenever "quizzical" changes, check if quizzical === false. If so change the value of reset which triggers a new call to the API.
+  //Whenever "quizzical" or "generatedApi" changes, check if !quizzical && generatedApi !== ``. If so change the value of reset which triggers a new call to the API.
   useEffect(() => {
-    if (!quizzical) {
+    if (!quizzical && generatedApi !== ``) {
       setReset((prevReset) => !prevReset);
     }
-  }, [quizzical]);
+  }, [generatedApi, quizzical]);
 
   //Extract the needed info from quizData whenever it changes.
   useEffect(() => {
@@ -173,6 +210,7 @@ export default function App() {
     );
   }, []);
 
+  //Toggle all buttons to reveal if they hold the correct option or not.
   const showAnswers = useCallback(() => {
     setQuizObject((prevObject) =>
       prevObject.map((object) => ({
@@ -205,7 +243,6 @@ export default function App() {
       setError(true);
     }
   }, [playersAnswers, error, quizzical]);
-  // console.log(quizObject);
 
   //Set "quizzical" to "false". This will trigger reset and reset the game.
   const playAgain = useCallback(() => {
@@ -217,7 +254,14 @@ export default function App() {
     <section className="app bg-[#eff2f9] text-[#293264] h-auto">
       {/* Page to show when game hasn't started. */}
       {!start && (
-        <Start startGame={startGame} shuffleOptions={shuffleOptions} />
+        <Start
+          cantStart={cantStart}
+          startGame={startGame}
+          shuffleOptions={shuffleOptions}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          api={api}
+        />
       )}
 
       {/* Page to show when game starts. */}

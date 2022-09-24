@@ -17,8 +17,6 @@ export default function Questions({
           : quizzical && option.isWrong
           ? "#F8BCBC"
           : "",
-      // backgroundColor: quizzical && option.isCorrect ? "green" : "",
-      // backgroundColor: quizzical && option.isWrong ? "#red" : "",
     };
 
     return (
@@ -38,7 +36,7 @@ export default function Questions({
 
   return (
     <div className="flex flex-col space-y-4 py-4 px-8 border-b border-[#DBDEF0]">
-      <h1 className="font-karla font-bold text-lg leading-5">
+      <h1 className="font-karla font-bold text-lg leading-6">
         {" "}
         {no}). {question}{" "}
       </h1>
