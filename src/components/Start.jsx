@@ -1,5 +1,7 @@
-import Form from "./Form";
-import Slide from "./Slide";
+import StartNav from "./StartNav";
+import Hero from "./Hero";
+import Main from "./Main";
+import Footer from "./Footer";
 
 export default function Start({
   cantStart,
@@ -11,24 +13,18 @@ export default function Start({
 }) {
   return (
     <section className="start container m-auto h-screen bg-[#f0f4fc] shadow-2xl">
-      <div className="h-full flex flex-col items-center justify-center overflow-y-auto space-y-5">
-        <Slide />
-        <h1 className="font-karla font-bold leading-9 text-3xl">Quizzical</h1>
-        <p className="font-inter font-normal text-base leading-5">
-          Put your brain to the test!
-        </p>
-        <p className="font-inter font-normal text-base leading-5">
-          Take your time! Try to ace the quiz then click the "Check Answer"
-          button to reveal the correct answers.
-        </p>
-        <Form
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          api={api}
+      <div className="h-full px-8 overflow-y-auto scroll-smooth">
+        <StartNav />
+        <Hero />
+        <Main
           cantStart={cantStart}
           startGame={startGame}
           shuffleOptions={shuffleOptions}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          api={api}
         />
+        <Footer />
       </div>
     </section>
   );

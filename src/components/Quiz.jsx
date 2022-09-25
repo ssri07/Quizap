@@ -1,4 +1,5 @@
 import Questions from "./Questions";
+import Footer from "./Footer";
 
 export default function Quiz({
   quizObject,
@@ -58,9 +59,7 @@ export default function Quiz({
               🚩Please ensure that you answer all questions.
             </p>
           )}
-          <p className="font-inter font-normal text-base leading-4">
-            Built with 💪🏻 by Abdul
-          </p>
+          <Footer />
         </div>
       </div>
     </section>

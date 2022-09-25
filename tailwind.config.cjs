@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         karla: ["Karla", "sans-serif"],
+        rubik: ["Rubik Dirt", "cursive"],
       },
     },
   },
