@@ -87,7 +87,9 @@ export default function Form({
       {cantStart && (
         <p className="text-red-500 font-karla font-bold text-sm">
           🚩Please make a choice in all fields, click{" "}
-          <span className="text-white text-xs bg-[#94D7A2] p-1 rounded">Confirm</span>{" "}
+          <span className="text-white text-xs bg-[#94D7A2] p-1 rounded">
+            Confirm
+          </span>{" "}
           then{" "}
           <span className="text-white text-xs bg-[#4D5B9E] p-1 rounded">
             Start Quiz

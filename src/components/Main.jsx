@@ -10,7 +10,9 @@ export default function Main({
 }) {
   return (
     <main id="main">
-      <h1 className="font-karla font-bold leading-9 text-3xl">Quizzical</h1>
+      <h2 className="font-karla font-bold leading-tight text-3xl">
+        Get Started
+      </h2>
       <p className="font-inter font-normal text-base leading-5">
         Put your brain to the test!
       </p>

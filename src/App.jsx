@@ -251,7 +251,7 @@ export default function App() {
   }, [quizzical]);
 
   return (
-    <section className="app bg-[#eff2f9] text-[#293264] h-auto">
+    <section className="app bg-[#eff2f9] text-[#293264] h-auto font-inter">
       {/* Page to show when game hasn't started. */}
       {!start && (
         <Start
