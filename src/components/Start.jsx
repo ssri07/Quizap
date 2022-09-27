@@ -1,9 +1,10 @@
 import StartNav from "./StartNav";
 import Hero from "./Hero";
 import Flow from "./Flow";
+import Categories from "./Categories";
+import GetStarted from "./GetStarted";
 import Main from "./Main";
 import Footer from "./Footer";
-import Categories from "./Categories";
 
 export default function Start({
   cantStart,
@@ -20,6 +21,7 @@ export default function Start({
         <Hero />
         <Flow />
         <Categories />
+        <GetStarted />
         <Main
           cantStart={cantStart}
           startGame={startGame}

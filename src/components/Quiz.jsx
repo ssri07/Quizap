@@ -46,12 +46,13 @@ export default function Quiz({
               </button>
             )}
             {quizzical && (
-              <button
+              <a
+                href="#main"
                 onClick={playAgain}
                 className="bg-[#4D5B9E] px-4 py-2 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
               >
                 Once More!
-              </button>
+              </a>
             )}
           </div>
           {error && (

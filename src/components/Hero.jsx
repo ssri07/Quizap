@@ -22,7 +22,7 @@ export default function Hero() {
           href="#main"
           className="bg-[#4D5B9E] w-fit px-8 py-3 text-white font-medium text-lg leading-5 rounded hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
         >
-          Lets go!
+          Let's go!
         </a>
       </div>
       <Slide />
