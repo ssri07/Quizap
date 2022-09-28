@@ -56,7 +56,7 @@ export default function Quiz({
             )}
           </div>
           {error && (
-            <p className="text-red-500 font-karla font-bold text-sm">
+            <p className="text-red-500 font-karla font-bold text-sm text-center">
               🚩Please ensure that you answer all questions.
             </p>
           )}

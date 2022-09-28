@@ -147,7 +147,7 @@ export default function Form({
       </div>
       {cantStart && (
         <div className="flex justify-center mt-4">
-          <p className="text-red-500 font-karla font-bold text-sm">
+          <p className="text-red-500 font-karla font-bold text-sm text-center">
             🚩Please make a choice in all fields, click{" "}
             <span className="text-white text-xs bg-[#94D7A2] p-1 rounded">
               Confirm
