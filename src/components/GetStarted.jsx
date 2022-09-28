@@ -1,6 +1,6 @@
 export default function GetStarted() {
   return (
-    <section className="py-12">
+    <section className="py-20">
       <div className="flex items-center justify-center">
         <i className="ri-bubble-chart-fill ri-3x text-[#94D7A2]"></i>
         <h1 className="font-karla font-bold leading-tight text-4xl z-10">
@@ -13,7 +13,7 @@ export default function GetStarted() {
         <hr className="border-double border-2 border-[#94d7a2] w-60" />
       </div>
       <div className="grid grid-cols-6 gap-5 px-5">
-        <div className="col-span-3">
+        <div className="col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl skew-y-3">
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="font-normal my-3 break-words leading-relaxed">
               Pick the amount of questions you want in your quiz{" "}
@@ -38,7 +38,7 @@ export default function GetStarted() {
             </li>
           </ul>
         </div>
-        <div className="col-span-3">
+        <div className="col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl -skew-y-3">
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="marker:text-[#4D5B9E] font-normal my-3 break-words leading-relaxed">
               Click{" "}
@@ -68,7 +68,7 @@ export default function GetStarted() {
             </li>
           </ul>
         </div>
-        <div className="col-start-2 col-end-6">
+        <div className="col-start-2 col-end-6 bg-[#dde6f8] p-5 rounded-lg shadow-xl">
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="font-normal my-3 break-words leading-relaxed">
               Answer all questions and click the{" "}
@@ -104,12 +104,12 @@ export default function GetStarted() {
               <span className="text-white font-bold text-xs bg-[#4D5B9E] p-1 rounded">
                 Once More!
               </span>{" "}
-              Play again. Enjoy.
+              Play again. Enjoy!
             </li>
           </ul>
         </div>
       </div>
-      <div className="flex space-x-4 items-center justify-center mb-6">
+      <div className="flex space-x-4 items-center justify-center my-6">
         <hr className="border-double border-1 border-[#94d7a2] w-40" />
         <div>
           <i className="ri-bubble-chart-fill ri-2x text-[#94D7A2]"></i>

@@ -1,6 +1,6 @@
 export default function Categories() {
   return (
-    <section className="py-12">
+    <section className="py-20">
       <div className="flex items-center justify-center mb-2">
         <i className="ri-focus-3-fill ri-3x text-[#94D7A2] -mr-[2.26rem]"></i>{" "}
         <h2 className="font-karla font-bold leading-tight text-4xl z-10">
