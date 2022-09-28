@@ -27,11 +27,11 @@ export default function Quiz({
   return (
     <section className="quiz container bg-[#f0f4fc] m-auto h-screen shadow-2xl">
       <div className="h-full">
-        <div className="h-5/6 flex flex-col overflow-y-auto space-y-5 px-20 py-8">
+        <div className="h-3/4 flex flex-col overflow-y-auto space-y-5 md:px-20 py-8">
           {questionElement()}
         </div>
-        <div className="h-1/6 flex flex-col justify-evenly items-center shadow-2xl">
-          <div className="submit space-x-5">
+        <div className="h-1/4 flex flex-col justify-evenly items-center border-t-2 shadow-2xl">
+          <div className="submit flex sm:flex-row flex-col items-center sm:space-y-0 space-y-3 space-x-5">
             {quizzical && (
               <span className="font-inter font-medium text-base leading-4">
                 You scored {score}/{quizObject.length} correct answers

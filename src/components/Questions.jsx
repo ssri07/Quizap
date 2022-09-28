@@ -27,7 +27,7 @@ export default function Questions({
           pick(option.id, id);
           update(no - 1, option.option);
         }}
-        className="font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
+        className="font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
       >
         {option.option}
       </button>
@@ -35,12 +35,12 @@ export default function Questions({
   });
 
   return (
-    <div className="flex flex-col space-y-4 py-4 px-8 border-b border-[#DBDEF0]">
+    <div className="flex flex-col space-y-4 py-4 md:px-0 px-6 md:pr-28 border-b border-[#DBDEF0]">
       <h1 className="font-karla font-bold text-lg leading-6">
         {" "}
         {no}). {question}{" "}
       </h1>
-      <div className="flex space-x-3">{optionButtons}</div>
+      <div className="grid sm:grid-cols-4 grid-cols-2 gap-6">{optionButtons}</div>
     </div>
   );
 }

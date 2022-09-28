@@ -24,13 +24,13 @@ export default function Form({
                 onChange={(e) => handleChange(e)}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
-                <option value="">Amount</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="25">25</option>
-                <option value="30">30</option>
+                <option className="" value="">Amount</option>
+                <option className="" value="5">5</option>
+                <option className="" value="10">10</option>
+                <option className="" value="15">15</option>
+                <option className="" value="20">20</option>
+                <option className="" value="25">25</option>
+                <option className="" value="30">30</option>
               </select>
             </div>
           </div>
@@ -108,10 +108,10 @@ export default function Form({
                 onChange={(e) => handleChange(e)}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
-                <option value="">Difficulty</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
+                <option className="" value="">Difficulty</option>
+                <option className="" value="easy">Easy</option>
+                <option className="" value="medium">Medium</option>
+                <option className="" value="hard">Hard</option>
               </select>
             </div>
           </div>
