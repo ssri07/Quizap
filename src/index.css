@@ -4,6 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Width */
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #94D7A2;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+}
+
 .app {
     background-image: url(src/assets/blobs.png), url(src/assets/blobs-1.png);
     background-repeat: no-repeat;

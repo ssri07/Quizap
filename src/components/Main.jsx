@@ -17,7 +17,7 @@ export default function Main({
         <i className="ri-fire-fill ri-3x text-[#94D7A2] mb-2"></i>
       </div>
       <div className="flex justify-center mb-8">
-        <span className="font-medium text-lg">Good Luck. Have fun!</span>
+        <span className="font-medium text-lg">Good luck, and have fun!</span>
       </div>
       <Form
         handleChange={handleChange}

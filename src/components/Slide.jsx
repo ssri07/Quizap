@@ -11,7 +11,7 @@ import { Autoplay, EffectCube } from "swiper";
 
 export default function Slide() {
   return (
-    <div>
+    <div className="sm:mt-0 mt-6">
       <Swiper
         effect={"cube"}
         grabCursor={true}
@@ -27,7 +27,7 @@ export default function Slide() {
           shadowScale: 0.94,
         }}
         modules={[Autoplay, EffectCube]}
-        className="mySwiper w-96"
+        className="mySwiper md:w-96 w-72"
       >
         <SwiperSlide className="swiper-slide">
           <img

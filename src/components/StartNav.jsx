@@ -11,8 +11,8 @@ export default function StartNav() {
         <i className="ri-check-double-line ri-3x -ml-5 text-[#94D7A2]"></i>
       </a>
       <div className="flex items-center">
-        <i className="ri-checkbox-circle-fill ri-3x text-[#94D7A2] z-10"></i>
-        <i className="ri-close-circle-fill ri-3x text-[#F8BCBC] -ml-4"></i>
+        <i className="ri-checkbox-circle-fill ri-3x sm:block hidden text-[#94D7A2] z-10"></i>
+        <i className="ri-close-circle-fill ri-3x sm:block hidden text-[#F8BCBC] -ml-4"></i>
       </div>
     </nav>
   );

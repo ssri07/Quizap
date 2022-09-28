@@ -2,13 +2,13 @@ import Slide from "./Slide";
 
 export default function Hero() {
   return (
-    <section className="hero flex justify-around items-center py-12">
-      <div className="flex flex-col space-y-5 w-1/2">
+    <section className="hero flex md:flex-row flex-col justify-around items-center py-12">
+      <div className="flex flex-col space-y-5 md:w-1/2">
         <div>
           <p className="font-inter font-thin test-base">
             Put your brain to the test.
           </p>
-          <h1 className="font-karla font-extrabold text-6xl break-words leading-tight">
+          <h1 className="font-karla font-extrabold lg:text-6xl text-5xl break-words leading-tight">
             <span className="underline decoration-wavy decoration-[#94D7A2]">
               Sharpen
             </span>{" "}
