@@ -1,6 +1,6 @@
 export default function GetStarted() {
   return (
-    <section className="py-20">
+    <section className="py-20 sm:p-0 p-4">
       <div className="flex items-center justify-center">
         <i className="ri-bubble-chart-fill ri-3x text-[#94D7A2]"></i>
         <h1 className="font-karla font-bold leading-tight text-4xl z-10">

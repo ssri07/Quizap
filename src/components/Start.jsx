@@ -16,7 +16,7 @@ export default function Start({
 }) {
   return (
     <section className="start container m-auto h-screen bg-[#f0f4fc] shadow-2xl">
-      <div className="h-full sm:px-8 px-6 overflow-y-auto scroll-smooth">
+      <div className="h-full sm:px-8 overflow-y-auto scroll-smooth">
         <StartNav />
         <Hero />
         <Flow />

@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="hero shapedividers_com-hero py-12">
       <div className="flex md:flex-row flex-col justify-around items-center">
-        <div className="flex flex-col space-y-5 md:w-1/2 z-10">
+        <div className="flex flex-col space-y-5 sm:px-0 px-5 md:w-1/2 z-10">
           <div>
             <p className="font-inter font-thin test-base">
               Put your brain to the test.

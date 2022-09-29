@@ -1,8 +1,8 @@
 export default function Categories() {
   return (
     <section className="py20">
-      <div className="shapedividers_com-cat h-96"></div>
-      <div className="bg-[#dde6f8]">
+      <div className="shapedividers_com-cat h-40"></div>
+      <div className="bg-[#dde6f8] py-20">
         <div className="flex sm:flex-row flex-col items-center justify-center mb-2">
           <i className="ri-focus-3-fill ri-3x text-[#94D7A2] sm:-mr-[2.26rem]"></i>{" "}
           <h2 className="font-karla font-bold leading-tight text-center text-4xl z-10">
@@ -58,7 +58,7 @@ export default function Categories() {
           </a>
         </div>
       </div>
-      <div className="shapedividers_com-catg h-96"></div>
+      <div className="shapedividers_com-catg h-40"></div>
     </section>
   );
 }

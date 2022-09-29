@@ -10,7 +10,7 @@ export default function Flow() {
           </span>
         </h2>
       </div>
-      <div className="flex md:flex-row flex-col justify-center items-center">
+      <div className="flex md:flex-row flex-col justify-center items-center sm:p-0 p-4">
         <a href="#amount">
           <div className="shadow-xl hover:outline bg-[#dde6f8] md:-skew-x-3 outline-[#4d5b9e] outline-offset-4 outline-1 rounded-lg flex flex-col items-center space-y-5 px-5 py-8">
             <i className="ri-file-list-3-fill ri-3x text-[#4D5B9E]"></i>

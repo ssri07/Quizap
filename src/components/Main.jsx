@@ -10,7 +10,7 @@ export default function Main({
 }) {
   return (
     <main className="pt-12">
-      <div className="shapedividers_com-main h-60"></div>
+      <div className="shapedividers_com-main h-40"></div>
       <div className="bg-[#dde6f8]">
         <div id="main" className="flex items-center justify-center">
           <h2 className="font-karla font-bold leading-tight text-4xl z-10">
