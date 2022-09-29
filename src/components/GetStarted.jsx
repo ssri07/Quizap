@@ -13,7 +13,7 @@ export default function GetStarted() {
         <hr className="border-double border-2 border-[#94d7a2] sm:w-60 w-1/4" />
       </div>
       <div className="grid md:grid-cols-6 gap-5 sm:px-5">
-        <div className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-3 skew-y-2">
+        <div className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-2 skew-y-1">
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="font-normal my-3 break-words leading-relaxed">
               Pick the amount of questions you want in your quiz{" "}
@@ -38,7 +38,7 @@ export default function GetStarted() {
             </li>
           </ul>
         </div>
-        <div className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:-skew-y-3 -skew-y-2">
+        <div className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:-skew-y-2 -skew-y-1">
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="marker:text-[#4D5B9E] font-normal my-3 break-words leading-relaxed">
               Click{" "}
@@ -68,7 +68,7 @@ export default function GetStarted() {
             </li>
           </ul>
         </div>
-        <div className="md:col-start-2 md:col-end-6 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-0 skew-y-2">
+        <div className="md:col-start-2 md:col-end-6 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-0 skew-y-1">
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="font-normal my-3 break-words leading-relaxed">
               Answer all questions and click the{" "}

@@ -169,8 +169,8 @@ export default function Form({
           <hr className="border-double border-1 border-[#94d7a2] w-40" />
         </div>
         {cantStart && (
-          <div className="flex justify-center mt-4">
-            <p className="text-red-500 font-karla font-bold text-sm text-center">
+          <div className="flex justify-center p-4">
+            <p className="text-red-500 font-karla font-bold text-sm text-center break-words leading-relaxed">
               🚩Please make a choice in all fields, click{" "}
               <span className="text-white text-xs bg-[#94D7A2] p-1 rounded">
                 Confirm

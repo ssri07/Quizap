@@ -9,7 +9,7 @@ export default function Categories() {
             Quzzical Categories
           </h2>
         </div>
-        <p className="font-inter font-normal text-base leading-tight text-center my-8">
+        <p className="font-inter font-normal text-base leading-tight text-center my-8 sm:px-0 px-4">
           Quizzical lets you choose the area/field you want your quiz questions
           centered on. <br /> Here are some of the Categories available.
         </p>
