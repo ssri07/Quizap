@@ -27,7 +27,7 @@ export default function Quiz({
   return (
     <section className="quiz container bg-[#f0f4fc] m-auto h-screen shadow-2xl select-none">
       <div className="h-full">
-        <div className="h-3/4 flex flex-col overflow-y-auto space-y-5 md:px-20 py-8">
+        <div className="h-3/4 flex flex-col overflow-y-auto space-y-5 md:px-20 pt-8">
           {questionElement()}
         </div>
         <div className="h-1/4 flex flex-col justify-evenly items-center border-t-2 shadow-2xl">
