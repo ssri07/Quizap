@@ -8,8 +8,8 @@ export default function Form({
 }) {
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid lg:grid-cols-3 md:grid-cols-4 gap-6">
-        <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
+      <div className="grid lg:grid-cols-3 md:grid-cols-4 gap-6 px-6">
+        <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
           <i className="ri-file-list-3-fill ri-3x text-[#4D5B9E]"></i>
           <div>
             <label htmlFor="amount" className="font-medium text-base">
@@ -24,18 +24,32 @@ export default function Form({
                 onChange={(e) => handleChange(e)}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
-                <option className="" value="">Amount</option>
-                <option className="" value="5">5</option>
-                <option className="" value="10">10</option>
-                <option className="" value="15">15</option>
-                <option className="" value="20">20</option>
-                <option className="" value="25">25</option>
-                <option className="" value="30">30</option>
+                <option className="" value="">
+                  Amount
+                </option>
+                <option className="" value="5">
+                  5
+                </option>
+                <option className="" value="10">
+                  10
+                </option>
+                <option className="" value="15">
+                  15
+                </option>
+                <option className="" value="20">
+                  20
+                </option>
+                <option className="" value="25">
+                  25
+                </option>
+                <option className="" value="30">
+                  30
+                </option>
               </select>
             </div>
           </div>
         </div>
-        <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
+        <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
           <i className="ri-focus-3-fill ri-3x text-[#94D7A2]"></i>
           <div>
             <label htmlFor="category" className="font-medium text-base">
@@ -93,7 +107,7 @@ export default function Form({
             </div>
           </div>
         </div>
-        <div className="lg:col-auto lg:col-start-auto md:col-start-2 md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
+        <div className="lg:col-auto lg:col-start-auto md:col-start-2 md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
           <i className="ri-fire-fill ri-3x text-[#F8BCBC]"></i>
           <div>
             <label htmlFor="difficulty" className="font-medium text-base">
@@ -108,10 +122,18 @@ export default function Form({
                 onChange={(e) => handleChange(e)}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
-                <option className="" value="">Difficulty</option>
-                <option className="" value="easy">Easy</option>
-                <option className="" value="medium">Medium</option>
-                <option className="" value="hard">Hard</option>
+                <option className="" value="">
+                  Difficulty
+                </option>
+                <option className="" value="easy">
+                  Easy
+                </option>
+                <option className="" value="medium">
+                  Medium
+                </option>
+                <option className="" value="hard">
+                  Hard
+                </option>
               </select>
             </div>
           </div>
@@ -128,37 +150,39 @@ export default function Form({
           <option value="boolean">True/False</option>
         </select> */}
       </div>
-      <div className="flex md:flex-row flex-col md:space-y-0 space-y-5 justify-center items-center mt-8 md:space-x-5">
-        <hr className="border-double border-1 border-[#94d7a2] w-40" />
-        <button className="bg-[#94D7A2] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#86cd95] active:bg-[#7fc78f] focus:outline-none focus:ring focus:ring-[#c7f7d1]">
-          Confirm
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            startGame();
-            shuffleOptions();
-          }}
-          className="bg-[#4D5B9E] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
-        >
-          Start Quiz
-        </button>
-        <hr className="border-double border-1 border-[#94d7a2] w-40" />
-      </div>
-      {cantStart && (
-        <div className="flex justify-center mt-4">
-          <p className="text-red-500 font-karla font-bold text-sm text-center">
-            🚩Please make a choice in all fields, click{" "}
-            <span className="text-white text-xs bg-[#94D7A2] p-1 rounded">
-              Confirm
-            </span>{" "}
-            then{" "}
-            <span className="text-white text-xs bg-[#4D5B9E] p-1 rounded">
-              Start Quiz
-            </span>
-          </p>
+      <div className="py-8">
+        <div className="flex md:flex-row flex-col md:space-y-0 space-y-5 justify-center items-center md:space-x-5">
+          <hr className="border-double border-1 border-[#94d7a2] w-40" />
+          <button className="bg-[#94D7A2] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#86cd95] active:bg-[#7fc78f] focus:outline-none focus:ring focus:ring-[#c7f7d1]">
+            Confirm
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              startGame();
+              shuffleOptions();
+            }}
+            className="bg-[#4D5B9E] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
+          >
+            Start Quiz
+          </button>
+          <hr className="border-double border-1 border-[#94d7a2] w-40" />
         </div>
-      )}
+        {cantStart && (
+          <div className="flex justify-center mt-4">
+            <p className="text-red-500 font-karla font-bold text-sm text-center">
+              🚩Please make a choice in all fields, click{" "}
+              <span className="text-white text-xs bg-[#94D7A2] p-1 rounded">
+                Confirm
+              </span>{" "}
+              then{" "}
+              <span className="text-white text-xs bg-[#4D5B9E] p-1 rounded">
+                Start Quiz
+              </span>
+            </p>
+          </div>
+        )}
+      </div>
     </form>
   );
 }

@@ -1,6 +1,6 @@
 export default function StartNav() {
   return (
-    <nav className="py-5 flex justify-between">
+    <nav className="p-5 flex justify-between bg-[#dde6f8]">
       <a href="#" className="flex items-center cursor-pointer">
         <div className="w-12 h-12 rounded-full bg-[#94D7A2] text-[#94D7A2]">
           .
