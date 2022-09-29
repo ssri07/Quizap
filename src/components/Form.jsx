@@ -11,9 +11,10 @@ export default function Form({
       <div className="grid lg:grid-cols-3 md:grid-cols-4 gap-6 px-6">
         <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
           <i className="ri-file-list-3-fill ri-3x text-[#4D5B9E]"></i>
-          <div>
-            <label htmlFor="amount" className="font-medium text-base">
-              Choose Amount:
+          <div className="flex flex-col items-center">
+            <label htmlFor="amount" className="font-medium text-sm flex">
+              Choose Amount
+              <i className="ri-arrow-down-s-fill text-[#4D5B9E]"></i>
             </label>
             <div className="flex items-center">
               <i className="ri-arrow-right-s-fill ri-2x text-[#94d7a2]"></i>
@@ -51,9 +52,10 @@ export default function Form({
         </div>
         <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
           <i className="ri-focus-3-fill ri-3x text-[#94D7A2]"></i>
-          <div>
-            <label htmlFor="category" className="font-medium text-base">
-              Pick Category:
+          <div className="flex flex-col items-center">
+            <label htmlFor="category" className="font-medium text-sm flex">
+              Pick Category
+              <i className="ri-arrow-down-s-fill text-[#4D5B9E]"></i>
             </label>
             <div className="flex items-center">
               <i className="ri-arrow-right-s-fill ri-2x text-[#94d7a2]"></i>
@@ -109,9 +111,10 @@ export default function Form({
         </div>
         <div className="lg:col-auto lg:col-start-auto md:col-start-2 md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
           <i className="ri-fire-fill ri-3x text-[#F8BCBC]"></i>
-          <div>
-            <label htmlFor="difficulty" className="font-medium text-base">
-              Choose Difficulty:
+          <div className="flex flex-col items-center">
+            <label htmlFor="difficulty" className="font-medium text-sm flex">
+              Choose Difficulty
+              <i className="ri-arrow-down-s-fill text-[#4D5B9E]"></i>
             </label>
             <div className="flex items-center">
               <i className="ri-arrow-right-s-fill ri-2x text-[#94d7a2]"></i>
@@ -153,7 +156,7 @@ export default function Form({
       <div className="py-8">
         <div className="flex md:flex-row flex-col md:space-y-0 space-y-5 justify-center items-center md:space-x-5">
           <hr className="border-double border-1 border-[#94d7a2] w-40" />
-          <button className="bg-[#94D7A2] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#86cd95] active:bg-[#7fc78f] focus:outline-none focus:ring focus:ring-[#c7f7d1]">
+          <button className="bg-[#94D7A2] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#86cd95] active:bg-[#7fc78f] focus:outline-none focus:ring focus:ring-[#c7f7d1] animate-bounce motion-reduce:animate-bounce">
             Confirm
           </button>
           <button
