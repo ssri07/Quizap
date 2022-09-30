@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="flex flex-col space-y-5 sm:px-0 px-5 md:w-1/2 z-10">
           <div>
             <p className="font-inter font-thin test-base">
-              Put your brain to the test.
+              Put your brain to the test...
             </p>
             <h1 className="font-karla font-extrabold lg:text-6xl text-5xl break-words leading-tight">
               <span className="underline decoration-wavy decoration-[#94D7A2]">

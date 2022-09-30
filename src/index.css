@@ -23,13 +23,13 @@
 }
 
 .app {
-    background-image: url(src/assets/blobs.png), url(src/assets/blobs-1.png);
+    background-image: url(./assets/blobs.png), url(./assets/blobs-1.png);
     background-repeat: no-repeat;
     background-position: left bottom, right top;
 }
 
 .start {
-    background-image: url(src/assets/blobs.png), url(src/assets/blobs-1.png);
+    background-image: url(./assets/blobs.png), url(./assets/blobs-1.png);
     background-repeat: no-repeat;
     background-position: left bottom, right top;
     background-size: 20rem, 20rem;
@@ -40,7 +40,7 @@
 }
 
 .quiz {
-    background-image: url(src/assets/blobs.png), url(src/assets/blobs-1.png);
+    background-image: url(./assets/blobs.png), url(./assets/blobs-1.png);
     background-repeat: no-repeat;
     background-position: left bottom, right top;
 }
