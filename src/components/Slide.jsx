@@ -1,3 +1,4 @@
+import classicBrain from "../assets/brain.png";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -31,7 +32,7 @@ export default function Slide() {
       >
         <SwiperSlide className="swiper-slide">
           <img
-            src="src/assets/brain.png"
+            src={classicBrain}
             alt="Classic Brain"
             className="w-full block"
           />
