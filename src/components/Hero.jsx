@@ -3,8 +3,8 @@ import Slide from "./Slide";
 
 export default function Hero() {
   const variants = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0, scale: 1 },
+    hidden: { opacity: 0, x: -300, scale: 0 },
   };
 
   return (
@@ -16,10 +16,10 @@ export default function Hero() {
           variants={variants}
           transition={{
             type: "spring",
-            bounce: .8,
+            bounce: 0.5,
             duration: 1,
-            delayChildren: 0.3,
-            staggerChildren: 0.05,
+            delayChildren: 0.5,
+            staggerChildren: 0.1,
           }}
           className="flex flex-col space-y-5 sm:px-0 px-5 md:w-1/2 z-10"
         >
@@ -47,6 +47,12 @@ export default function Hero() {
             The best place to take an online quiz that's fun. Take a quiz now!
           </motion.p>
           <motion.a
+            whileHover={{
+              x: [10, 0, 0],
+              scale: [0.9, 1.2, 1],
+              transition: { type: "spring", duration: 0.2 },
+            }}
+            whileTap={{ scale: [0.9, 1] }}
             variants={variants}
             href="#main"
             className="bg-[#4D5B9E] w-fit px-8 py-3 text-white font-medium text-lg leading-5 rounded hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2] animate-pulse motion-reduce:animate-pulse hover:animate-none"

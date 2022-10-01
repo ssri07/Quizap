@@ -6,7 +6,7 @@ export default function Categories() {
         <div className="flex sm:flex-row flex-col items-center justify-center mb-2">
           <i className="ri-focus-3-fill ri-3x text-[#94D7A2] sm:-mr-[2.26rem]"></i>{" "}
           <h2 className="font-karla font-bold leading-tight text-center text-4xl z-10">
-            Quzzical Categories
+            Quizap Categories
           </h2>
         </div>
         <p className="font-inter font-normal text-base leading-tight text-center my-8 sm:px-0 px-4">

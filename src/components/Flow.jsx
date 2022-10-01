@@ -4,7 +4,7 @@ export default function Flow() {
       <div className="flex items-center justify-center mb-8">
         <i className="ri-flow-chart ri-2x text-[#94D7A2]"></i>
         <h2 className="font-karla font-bold leading-tight text-4xl">
-          Quzzical{" "}
+          Quizap{" "}
           <span className="underline decoration-wavy decoration-[#94D7A2] decoration-2">
             Flow
           </span>

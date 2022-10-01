@@ -15,11 +15,11 @@ export default function Slide() {
   return (
     <motion.div
       animate={{
-        x: [50, 100, -20, 0],
-        scale: [0.8, 0.9, 1.05, 1],
-        opacity: [0.4, 0.6, 0.8, 1],
+        x: [50, 100, 100, -20, 0],
+        scale: [0.6, 0.8, 1, 1.05, 1],
+        opacity: [0.4, 0.6, 0.6, 0.8, 1],
       }}
-      transition={{ duration: .8 }}
+      transition={{ duration: 0.8 }}
       className="sm:mt-0 mt-6"
     >
       <Swiper
