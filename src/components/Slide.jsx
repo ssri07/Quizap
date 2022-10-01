@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import classicBrain from "../assets/brain.png";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,7 +13,15 @@ import { Autoplay, EffectCube } from "swiper";
 
 export default function Slide() {
   return (
-    <div className="sm:mt-0 mt-6">
+    <motion.div
+      animate={{
+        x: [50, 100, -20, 0],
+        scale: [0.8, 0.9, 1.05, 1],
+        opacity: [0.4, 0.6, 0.8, 1],
+      }}
+      transition={{ duration: .8 }}
+      className="sm:mt-0 mt-6"
+    >
       <Swiper
         effect={"cube"}
         grabCursor={true}
@@ -38,6 +47,6 @@ export default function Slide() {
           />
         </SwiperSlide>
       </Swiper>
-    </div>
+    </motion.div>
   );
 }
