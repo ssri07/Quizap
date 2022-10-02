@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function StartNav() {
   return (
-    <nav className="p-5 flex justify-between bg-[#dde6f8]">
+    <nav id="nav" className="p-5 flex justify-between bg-[#dde6f8]">
       <motion.a
         animate={{ x: [null, 10, 0] }}
         transition={{
@@ -12,7 +12,7 @@ export default function StartNav() {
           repeatDelay: 3,
           repeatType: "reverse",
         }}
-        href="#"
+        href="#nav"
         className="flex items-center cursor-pointer"
       >
         <div className="w-12 h-12 rounded-full bg-[#94D7A2] text-[#94D7A2] animate-pulse motion-reduce:animate-pulse"></div>

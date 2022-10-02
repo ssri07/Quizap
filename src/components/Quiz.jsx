@@ -13,8 +13,8 @@ export default function Quiz({
   playAgain,
 }) {
   const variants = {
-    visible: { opacity: 1, x: 0, scale: 1 },
-    hidden: { opacity: 0, x: -300, scale: 0 },
+    visible: { opacity: 1, scale: 1 },
+    hidden: { opacity: 0, scale: 0 },
   };
 
   function questionElement() {
@@ -41,15 +41,15 @@ export default function Quiz({
           transition={{
             type: "spring",
             bounce: 0.5,
-            duration: 0.8,
-            delayChildren: 0.5,
+            duration: 0.5,
+            delayChildren: 0.3,
             staggerChildren: 0.1,
           }}
           className="h-3/4 flex flex-col overflow-y-auto space-y-5 md:px-20 pt-8"
         >
           {questionElement()}
         </motion.div>
-        <div className="h-1/4 flex flex-col justify-evenly items-center border-t-2 shadow-2xl">
+        <div className="h-1/4 flex flex-col justify-between items-center border-t-2 shadow-2xl pt-2">
           <div className="submit flex sm:flex-row flex-col items-center sm:space-y-0 space-y-3 space-x-5">
             {quizzical && (
               <span className="font-inter font-medium text-base leading-4">
@@ -68,7 +68,7 @@ export default function Quiz({
               <a
                 href="#main"
                 onClick={playAgain}
-                className="bg-[#4D5B9E] px-4 py-2 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2] animate-bounce motion-reduce:animate-bounce hover:animate-none"
+                className="bg-[#4D5B9E] px-4 py-2 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2] animate-pulse motion-reduce:animate-pulse hover:animate-none"
               >
                 Once More!
               </a>
