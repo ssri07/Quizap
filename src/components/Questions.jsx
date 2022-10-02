@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 export default function Questions({
   question,
   options,
@@ -6,6 +7,7 @@ export default function Questions({
   pick,
   update,
   quizzical,
+  variants,
 }) {
   const optionButtons = options.map((option, i) => {
     const styles = {
@@ -35,12 +37,17 @@ export default function Questions({
   });
 
   return (
-    <div className="flex flex-col space-y-4 py-4 md:px-0 px-6 md:pr-28 border-b border-[#DBDEF0]">
+    <motion.div
+      variants={variants}
+      className="flex flex-col space-y-4 py-4 md:px-0 px-6 md:pr-28 border-b border-[#DBDEF0]"
+    >
       <h1 className="font-karla font-bold text-lg leading-6">
         {" "}
         {no}). {question}{" "}
       </h1>
-      <div className="grid sm:grid-cols-4 grid-cols-2 gap-6">{optionButtons}</div>
-    </div>
+      <div className="grid sm:grid-cols-4 grid-cols-2 gap-6">
+        {optionButtons}
+      </div>
+    </motion.div>
   );
 }

@@ -17,7 +17,7 @@ export default function Hero() {
           transition={{
             type: "spring",
             bounce: 0.5,
-            duration: 1,
+            duration: 0.8,
             delayChildren: 0.5,
             staggerChildren: 0.1,
           }}
@@ -49,8 +49,13 @@ export default function Hero() {
           <motion.a
             whileHover={{
               x: [10, 0, 0],
-              scale: [0.9, 1.2, 1],
-              transition: { type: "spring", duration: 0.2 },
+              scale: [0.9, 1.05, 1],
+              transition: {
+                type: "spring",
+                stiffness: 400,
+                damping: 10,
+                duration: 0.2,
+              },
             }}
             whileTap={{ scale: [0.9, 1] }}
             variants={variants}

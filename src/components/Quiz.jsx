@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Questions from "./Questions";
 import Footer from "./Footer";
 
@@ -11,6 +12,11 @@ export default function Quiz({
   quizzical,
   playAgain,
 }) {
+  const variants = {
+    visible: { opacity: 1, x: 0, scale: 1 },
+    hidden: { opacity: 0, x: -300, scale: 0 },
+  };
+
   function questionElement() {
     return quizObject.map((question, i) => (
       <Questions
@@ -20,6 +26,7 @@ export default function Quiz({
         pick={toggleIsPicked}
         update={updatePlayersAnswers}
         quizzical={quizzical}
+        variants={variants}
       />
     ));
   }
@@ -27,9 +34,21 @@ export default function Quiz({
   return (
     <section className="quiz container bg-[#f0f4fc] m-auto h-screen shadow-2xl select-none">
       <div className="h-full">
-        <div className="h-3/4 flex flex-col overflow-y-auto space-y-5 md:px-20 pt-8">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={{
+            type: "spring",
+            bounce: 0.5,
+            duration: 0.8,
+            delayChildren: 0.5,
+            staggerChildren: 0.1,
+          }}
+          className="h-3/4 flex flex-col overflow-y-auto space-y-5 md:px-20 pt-8"
+        >
           {questionElement()}
-        </div>
+        </motion.div>
         <div className="h-1/4 flex flex-col justify-evenly items-center border-t-2 shadow-2xl">
           <div className="submit flex sm:flex-row flex-col items-center sm:space-y-0 space-y-3 space-x-5">
             {quizzical && (

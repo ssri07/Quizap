@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Form({
   handleChange,
   handleSubmit,
@@ -6,10 +8,30 @@ export default function Form({
   startGame,
   shuffleOptions,
 }) {
+  const variants = {
+    visible: { opacity: 1, scale: 1 },
+    hidden: { opacity: 0, scale: 0 },
+  };
+
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid lg:grid-cols-3 md:grid-cols-4 gap-6 px-6">
-        <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={variants}
+        transition={{
+          type: "spring",
+          duration: 1,
+          delayChildren: 0.5,
+          staggerChildren: 0.05,
+        }}
+        viewport={{ once: true }}
+        className="grid lg:grid-cols-3 md:grid-cols-4 gap-6 px-6"
+      >
+        <motion.div
+          variants={variants}
+          className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]"
+        >
           <i className="ri-file-list-3-fill ri-3x text-[#4D5B9E]"></i>
           <div className="flex flex-col items-center">
             <label htmlFor="amount" className="font-medium text-sm flex">
@@ -49,8 +71,11 @@ export default function Form({
               </select>
             </div>
           </div>
-        </div>
-        <div className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
+        </motion.div>
+        <motion.div
+          variants={variants}
+          className="lg:col-auto md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]"
+        >
           <i className="ri-focus-3-fill ri-3x text-[#94D7A2]"></i>
           <div className="flex flex-col items-center">
             <label htmlFor="category" className="font-medium text-sm flex">
@@ -108,8 +133,11 @@ export default function Form({
               </select>
             </div>
           </div>
-        </div>
-        <div className="lg:col-auto lg:col-start-auto md:col-start-2 md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]">
+        </motion.div>
+        <motion.div
+          variants={variants}
+          className="lg:col-auto lg:col-start-auto md:col-start-2 md:col-span-2 flex flex-col space-y-3 items-center py-6 rounded-xl shadow-2xl hover:outline outline-[#4d5b9e] outline-offset-4 outline-1 bg-[#dde6f8]"
+        >
           <i className="ri-fire-fill ri-3x text-[#F8BCBC]"></i>
           <div className="flex flex-col items-center">
             <label htmlFor="difficulty" className="font-medium text-sm flex">
@@ -140,7 +168,7 @@ export default function Form({
               </select>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* <select
           name="type"
           id="type"
@@ -152,9 +180,18 @@ export default function Form({
           <option value="multiple">Multiple Choice</option>
           <option value="boolean">True/False</option>
         </select> */}
-      </div>
-      <div className="py-8">
-        <div className="flex md:flex-row flex-col md:space-y-0 space-y-5 justify-center items-center md:space-x-5">
+      </motion.div>
+      <motion.div className="py-8">
+        <motion.div
+          whileInView={{
+            scale: [0, 1.05, 1],
+            rotateX: [0, 360, 360],
+            opacity: [0, 0.5, 1],
+            transition: { duration: 1 },
+          }}
+          viewport={{ once: true }}
+          className="flex md:flex-row flex-col md:space-y-0 space-y-5 justify-center items-center md:space-x-5"
+        >
           <hr className="border-double border-1 border-[#94d7a2] w-40" />
           <button className="bg-[#94D7A2] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#86cd95] active:bg-[#7fc78f] focus:outline-none focus:ring focus:ring-[#c7f7d1] animate-bounce motion-reduce:animate-bounce hover:animate-none">
             Confirm
@@ -170,7 +207,7 @@ export default function Form({
             Start Quiz
           </button>
           <hr className="border-double border-1 border-[#94d7a2] w-40" />
-        </div>
+        </motion.div>
         {cantStart && (
           <div className="flex justify-center p-4">
             <p className="text-red-500 font-karla font-bold text-sm text-center break-words leading-relaxed">
@@ -185,7 +222,7 @@ export default function Form({
             </p>
           </div>
         )}
-      </div>
+      </motion.div>
     </form>
   );
 }

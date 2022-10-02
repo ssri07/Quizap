@@ -1,19 +1,75 @@
+import { motion } from "framer-motion";
+
 export default function GetStarted() {
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
   return (
     <section className="py-20 sm:p-0 p-4">
-      <div className="flex items-center justify-center">
+      <motion.div
+        whileInView={{
+          scale: [0, 1.05, 1],
+          rotateX: [0, 360, 360],
+          opacity: [0, 0.5, 1],
+          transition: { duration: 1 },
+        }}
+        viewport={{ once: true }}
+        className="flex items-center justify-center"
+      >
         <i className="ri-bubble-chart-fill ri-3x text-[#94D7A2]"></i>
         <h1 className="font-karla font-bold leading-tight text-4xl z-10">
           Get Started
         </h1>
-      </div>
+      </motion.div>
       <div className="flex space-x-4 items-center justify-center mb-6">
-        <hr className="border-double border-2 border-[#94d7a2] sm:w-60 w-1/4" />
-        <span className="font-medium text-lg text-center sm:w-auto w-1/2">How To Play</span>
-        <hr className="border-double border-2 border-[#94d7a2] sm:w-60 w-1/4" />
+        <motion.hr
+          whileInView={{
+            x: [-200, 20, 0],
+            opacity: [0, 0.5, 1],
+            transition: { duration: 1 },
+          }}
+          viewport={{ once: true }}
+          className="border-double border-2 border-[#94d7a2] sm:w-60 w-1/4"
+        />
+        <motion.span
+          whileInView={{
+            opacity: [0, 0.5, 1],
+            transition: { duration: 1, delay: 0.5 },
+          }}
+          viewport={{ once: true }}
+          className="font-medium text-lg text-center sm:w-auto w-1/2"
+        >
+          How To Play
+        </motion.span>
+        <motion.hr
+          whileInView={{
+            x: [200, -20, 0],
+            opacity: [0, 0.5, 1],
+            transition: { duration: 1 },
+          }}
+          viewport={{ once: true }}
+          className="border-double border-2 border-[#94d7a2] sm:w-60 w-1/4"
+        />
       </div>
-      <div className="grid md:grid-cols-6 gap-5 sm:px-5">
-        <div className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-2 skew-y-1">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={variants}
+        transition={{
+          type: "spring",
+          duration: 1,
+          delayChildren: 0.5,
+          staggerChildren: 0.05,
+        }}
+        viewport={{ once: true }}
+        className="grid md:grid-cols-6 gap-5 sm:px-5"
+      >
+        <motion.div
+          variants={variants}
+          className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-2 skew-y-1"
+        >
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="font-normal my-3 break-words leading-relaxed">
               Pick the amount of questions you want in your quiz{" "}
@@ -37,8 +93,11 @@ export default function GetStarted() {
               </span>
             </li>
           </ul>
-        </div>
-        <div className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:-skew-y-2 -skew-y-1">
+        </motion.div>
+        <motion.div
+          variants={variants}
+          className="md:col-span-3 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:-skew-y-2 -skew-y-1"
+        >
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="marker:text-[#4D5B9E] font-normal my-3 break-words leading-relaxed">
               Click{" "}
@@ -67,8 +126,11 @@ export default function GetStarted() {
               quiz.
             </li>
           </ul>
-        </div>
-        <div className="md:col-start-2 md:col-end-6 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-0 skew-y-1">
+        </motion.div>
+        <motion.div
+          variants={variants}
+          className="md:col-start-2 md:col-end-6 bg-[#dde6f8] p-5 rounded-lg shadow-xl md:skew-y-0 skew-y-1"
+        >
           <ul className="list-disc marker:text-[#94d7a2] text-base">
             <li className="font-normal my-3 break-words leading-relaxed">
               Answer all questions and click the{" "}
@@ -107,16 +169,25 @@ export default function GetStarted() {
               Play again. Enjoy!
             </li>
           </ul>
-        </div>
-      </div>
-      <div className="flex space-x-4 items-center justify-center my-6">
+        </motion.div>
+      </motion.div>
+      <motion.div
+        whileInView={{
+          scale: [0, 1.05, 1],
+          rotateX: [0, 360, 360],
+          opacity: [0, 0.5, 1],
+          transition: { duration: 1 },
+        }}
+        viewport={{ once: true }}
+        className="flex space-x-4 items-center justify-center my-6"
+      >
         <hr className="border-double border-1 border-[#94d7a2] w-40" />
         <div>
           <i className="ri-bubble-chart-fill ri-2x text-[#94D7A2]"></i>
           <i className="ri-bubble-chart-fill ri-2x text-[#94D7A2]"></i>
         </div>
         <hr className="border-double border-1 border-[#94d7a2] w-40" />
-      </div>
+      </motion.div>
     </section>
   );
 }
