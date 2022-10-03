@@ -193,7 +193,7 @@ export default function Form({
           className="flex md:flex-row flex-col md:space-y-0 space-y-5 justify-center items-center md:space-x-5"
         >
           <hr className="border-double border-1 border-[#94d7a2] w-40" />
-          <button className="bg-[#94D7A2] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#86cd95] active:bg-[#7fc78f] focus:outline-none focus:ring focus:ring-[#c7f7d1] animate-bounce motion-reduce:animate-bounce hover:animate-none">
+          <button className="bg-[#94D7A2] px-5 py-2 text-white font-medium text-base leading-5 rounded hover:bg-[#86cd95] active:bg-[#7fc78f] focus:outline-none focus:ring focus:ring-[#c7f7d1] animate-bounce motion-reduce:animate-bounce hover:animate-none focus:animate-none">
             Confirm
           </button>
           <button

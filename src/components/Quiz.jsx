@@ -49,7 +49,7 @@ export default function Quiz({
         >
           {questionElement()}
         </motion.div>
-        <div className="h-1/4 flex flex-col justify-end items-center space-y-4 border-t-2 shadow-2xl pt-2">
+        <div className="h-1/4 flex flex-col sm:justify-between justify-end items-center sm:space-y-0 space-y-4 border-t-2 shadow-2xl pt-2">
           <div className="submit flex sm:flex-row flex-col items-center sm:space-y-0 space-y-3 space-x-5">
             {quizzical && (
               <span className="font-inter font-medium text-base leading-4">
