@@ -37,7 +37,7 @@ export default function Quiz({
   return (
     <section className="quiz container bg-[#f0f4fc] m-auto h-screen shadow-2xl select-none">
       <div className="h-full">
-        <div className="bg-[#dde6f8] font-karla h-[5%] flex items-center justify-end space-x-5 sm:py-3 py-4 sm:px-8 px-4 border-b border-[#dde6f8] shadow-2xl">
+        <div className="bg-[#dde6f8] font-karla h-[5%] flex items-center justify-end space-x-5 sm:py-3 py-6 sm:px-8 px-4 border-b border-[#dde6f8] shadow-2xl">
           <span className="flex sm:flex-row flex-col items-center justify-center">
             <span className="font-inter underline decoration-wavy decoration-[#94D7A2]">
               Amount:
