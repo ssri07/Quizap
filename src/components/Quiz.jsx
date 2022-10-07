@@ -37,25 +37,24 @@ export default function Quiz({
   return (
     <section className="quiz container bg-[#f0f4fc] m-auto h-screen shadow-2xl select-none">
       <div className="h-full">
-        <div className="bg-[#dde6f8] font-karla h-[5%] flex items-center justify-end sm:space-x-5 space-x-1 pt-3 pb-2 sm:px-8 px-1 border-b border-[#dde6f8] shadow-2xl">
-          <span>
+        <div className="bg-[#dde6f8] font-karla h-[5%] flex items-center justify-end space-x-5 sm:py-3 py-4 sm:px-8 px-4 border-b border-[#dde6f8] shadow-2xl">
+          <span className="flex sm:flex-row flex-col items-center justify-center">
             <span className="font-inter underline decoration-wavy decoration-[#94D7A2]">
-              Amount
+              Amount:
             </span>{" "}
-            - {api.amount}.
+            {api.amount}.
           </span>
-          <span>
+          <span className="flex sm:flex-row flex-col items-center justify-center">
             <span className="font-inter underline decoration-wavy decoration-[#94D7A2]">
-              Category
+              Category:
             </span>{" "}
-            - {api.categoryLabel}.
+            {api.categoryLabel}.
           </span>
-          <span>
+          <span className="flex sm:flex-row flex-col items-center justify-center">
             <span className="font-inter underline decoration-wavy decoration-[#94D7A2]">
-              Difficulty
+              Difficulty:
             </span>{" "}
-            - {api.difficulty.charAt(0).toUpperCase() + api.difficulty.slice(1)}
-            .
+            {api.difficulty.charAt(0).toUpperCase() + api.difficulty.slice(1)}.
           </span>
         </div>
         {!quizNull ? (
