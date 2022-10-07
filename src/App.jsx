@@ -7,6 +7,7 @@ export default function App() {
   const [api, setApi] = useState({
     amount: "",
     category: "",
+    categoryLabel: "",
     difficulty: "",
     // type: "",
   });
@@ -21,6 +22,7 @@ export default function App() {
   const [reset, setReset] = useState(false);
   const [cantStart, setCantStart] = useState();
   const [start, setStart] = useState(false);
+  const [quizNull, setQuizNull] = useState(false);
 
   //Make a call to the API; whenever "reset" changes make another call.
   useEffect(() => {
@@ -31,42 +33,6 @@ export default function App() {
     }
     getQuestions();
   }, [reset]);
-
-  //Generate API based on the arear the player chooses.
-  const generateApi = useCallback(
-    (amount, category, difficulty, type) => {
-      setGeneratedApi(
-        `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
-      );
-    },
-    [generatedApi]
-  );
-
-  //Update "api" with the value the player chooses.
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setApi((prevApi) => ({ ...prevApi, [name]: value }));
-  }
-
-  //Check ia all fields in "api" have been provided. If so, call "generateApi"
-  function handleSubmit(event) {
-    event.preventDefault();
-    const isApiCorrect = Object.values(api).every((val) => val !== "");
-    if (isApiCorrect) {
-      setCantStart(false);
-      generateApi(api.amount, api.category, api.difficulty, api.type);
-    } else {
-      setCantStart(true);
-    }
-  }
-  //Start the game.
-  const startGame = useCallback(() => {
-    if (cantStart === false) {
-      setStart((prevStart) => !prevStart);
-    } else {
-      setCantStart(true);
-    }
-  }, [cantStart]);
 
   //Extract the correct answers from the "quizObject" variable.
   useEffect(() => {
@@ -97,6 +63,15 @@ export default function App() {
       setReset((prevReset) => !prevReset);
     }
   }, [generatedApi, quizzical]);
+
+  //Check if quiz is available, and display error message if there is no quiz.
+  useEffect(() => {
+    if (quizData.length !== 0) {
+      setQuizNull(false);
+    } else {
+      setQuizNull(true);
+    }
+  }, [start]);
 
   //Extract the needed info from quizData whenever it changes.
   useEffect(() => {
@@ -138,6 +113,46 @@ export default function App() {
       }))
     );
   }, [quizData]);
+
+  //Generate API based on the area the player chooses.
+  const generateApi = useCallback(
+    (amount, category, difficulty, type) => {
+      setGeneratedApi(
+        `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
+      );
+    },
+    [generatedApi]
+  );
+
+  //Update "api" with the value the player chooses.
+  function handleChange(event, label) {
+    const { name, value } = event.target;
+    setApi((prevApi) => ({
+      ...prevApi,
+      [name]: value,
+      categoryLabel: label && label !== "" ? label : prevApi.categoryLabel,
+    }));
+  }
+
+  //Check ia all fields in "api" have been provided. If so, call "generateApi"
+  function handleSubmit(event) {
+    event.preventDefault();
+    const isApiCorrect = Object.values(api).every((val) => val !== "");
+    if (isApiCorrect) {
+      setCantStart(false);
+      generateApi(api.amount, api.category, api.difficulty, api.type);
+    } else {
+      setCantStart(true);
+    }
+  }
+  //Start the game.
+  const startGame = useCallback(() => {
+    if (cantStart === false) {
+      setStart((prevStart) => !prevStart);
+    } else {
+      setCantStart(true);
+    }
+  }, [cantStart]);
 
   //Shuffle the options to be displayed.
   function shuffle(arr) {
@@ -250,6 +265,12 @@ export default function App() {
     startGame();
   }, [quizzical]);
 
+  //Return to "Main" section fron thne error page.
+  const goBack = useCallback(() => {
+    setQuizNull(false);
+    setStart((prevStart) => !prevStart);
+  }, [quizNull]);
+
   return (
     <section className="app bg-[#eff2f9] text-[#293264] h-auto font-inter">
       {/* Page to show when game hasn't started. */}
@@ -267,6 +288,8 @@ export default function App() {
       {/* Page to show when game starts. */}
       {start && (
         <Quiz
+          api={api}
+          quizNull={quizNull}
           quizObject={quizObject}
           toggleIsPicked={toggleIsPicked}
           updatePlayersAnswers={updatePlayersAnswers}
@@ -275,6 +298,7 @@ export default function App() {
           error={error}
           quizzical={quizzical}
           playAgain={playAgain}
+          goBack={goBack}
         />
       )}
     </section>

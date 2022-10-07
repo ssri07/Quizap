@@ -34,7 +34,7 @@ export default function Hero() {
               variants={variants}
               className="font-karla font-extrabold lg:text-6xl text-5xl break-words leading-tight"
             >
-              <span className="underline decoration-wavy decoration-[#94D7A2]">
+              <span className="underline decoration-wavy hover:decoration-double decoration-[#94D7A2]">
                 Sharpen
               </span>{" "}
               your mind today!

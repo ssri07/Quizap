@@ -62,12 +62,12 @@ export default function Form({
                 <option className="" value="20">
                   20
                 </option>
-                <option className="" value="25">
+                {/* <option className="" value="25">
                   25
                 </option>
                 <option className="" value="30">
                   30
-                </option>
+                </option> */}
               </select>
             </div>
           </div>
@@ -88,7 +88,11 @@ export default function Form({
                 name="category"
                 id="category"
                 value={api.category}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => {
+                  const categoryLabel =
+                    e.target.options[e.target.selectedIndex].text;
+                  handleChange(e, categoryLabel);
+                }}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
                 <option className="" value="">
