@@ -4,7 +4,7 @@
 Quizap helps you put your brain to a quick test with variety of quiz questions from several categories, and in different difficulties.  
 
 ## About the Project 📖
-This is a solo project from [Bob Ziroll's](https://twitter.com/bobziroll) React course on [Scrimba](https://scrimba.com/dashboard#overview). It consumes the [OpenTrivia DB](https://opentdb.com/api_config.php) API, and uses the data to render a quick quiz based on your preference. 
+This is a solo project from [Bob Ziroll's](https://twitter.com/bobziroll) React course on [Scrimba](https://scrimba.com). It consumes the [OpenTrivia DB](https://opentdb.com/api_config.php) API, and uses the data to render a quick quiz based on your preference. 
 
 ## Technologies Used ✨
 This project was created with ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) and the following technologies were used: <br/>
