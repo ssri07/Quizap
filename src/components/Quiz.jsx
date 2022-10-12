@@ -97,7 +97,7 @@ export default function Quiz({
               <span className="underline decoration-wavy decoration-[#94D7A2]">
                 {api.categoryLabel}
               </span>{" "}
-              category are unavailable.
+              category is unavailable.
             </h1>
           </div>
         )}

@@ -33,7 +33,7 @@ export default function Categories() {
           viewport={{ once: true }}
           className="font-inter font-normal text-base leading-tight text-center my-8 sm:px-0 px-4"
         >
-          Quizzical lets you choose the area/field you want your quiz questions
+          Quizap lets you choose the area/field you want your quiz questions
           centered on. <br /> Here are some of the Categories available.
         </motion.p>
         <motion.div

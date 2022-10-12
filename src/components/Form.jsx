@@ -47,19 +47,19 @@ export default function Form({
                 onChange={(e) => handleChange(e)}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
-                <option className="" value="">
+                <option className="bg-[#dde6f8] font-medium" value="">
                   Amount
                 </option>
-                <option className="" value="5">
+                <option className="bg-[#dde6f8]" value="5">
                   5
                 </option>
-                <option className="" value="10">
+                <option className="bg-[#dde6f8]" value="10">
                   10
                 </option>
-                <option className="" value="15">
+                <option className="bg-[#dde6f8]" value="15">
                   15
                 </option>
-                <option className="" value="20">
+                <option className="bg-[#dde6f8]" value="20">
                   20
                 </option>
                 {/* <option className="" value="25">
@@ -95,43 +95,43 @@ export default function Form({
                 }}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
-                <option className="" value="">
+                <option className="bg-[#dde6f8] font-medium" value="">
                   Category
                 </option>
-                <option className="" value="9">
+                <option className="bg-[#dde6f8]" value="9">
                   General Knowledge
                 </option>
-                <option className="" value="17">
+                <option className="bg-[#dde6f8]" value="17">
                   Science & Nature
                 </option>
-                <option className="" value="18">
+                <option className="bg-[#dde6f8]" value="18">
                   Science: Computers
                 </option>
-                <option className="" value="19">
+                <option className="bg-[#dde6f8]" value="19">
                   Science: Mathematics
                 </option>
-                <option className="" value="20">
+                <option className="bg-[#dde6f8]" value="20">
                   Mythology
                 </option>
-                <option className="" value="21">
+                <option className="bg-[#dde6f8]" value="21">
                   Sports
                 </option>
-                <option className="" value="23">
+                <option className="bg-[#dde6f8]" value="23">
                   History
                 </option>
-                <option className="" value="10">
+                <option className="bg-[#dde6f8]" value="10">
                   Entertainment: Books
                 </option>
-                <option className="" value="11">
+                <option className="bg-[#dde6f8]" value="11">
                   Entertainment: Film
                 </option>
-                <option className="" value="12">
+                <option className="bg-[#dde6f8]" value="12">
                   Entertainment: Music
                 </option>
-                <option className="" value="15">
+                <option className="bg-[#dde6f8]" value="15">
                   Entertainment: Video Games
                 </option>
-                <option className="" value="16">
+                <option className="bg-[#dde6f8]" value="16">
                   Entertainment: Board Games
                 </option>
               </select>
@@ -157,16 +157,16 @@ export default function Form({
                 onChange={(e) => handleChange(e)}
                 className="cursor-pointer font-inter font-medium text-xs leading-4 border border-solid border-[#4D5B9E] px-4 py-2 rounded-lg hover:shadow hover:shadow-[#4D5B9E] focus:outline-none focus:ring focus:ring-[#D6DBF5]"
               >
-                <option className="" value="">
+                <option className="bg-[#dde6f8] font-medium" value="">
                   Difficulty
                 </option>
-                <option className="" value="easy">
+                <option className="bg-[#dde6f8]" value="easy">
                   Easy
                 </option>
-                <option className="" value="medium">
+                <option className="bg-[#dde6f8]" value="medium">
                   Medium
                 </option>
-                <option className="" value="hard">
+                <option className="bg-[#dde6f8]" value="hard">
                   Hard
                 </option>
               </select>
