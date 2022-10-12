@@ -64,6 +64,19 @@ This project was created with ![Visual Studio Code](https://img.shields.io/badge
 
 
  * ENJOY.🚀
+ 
+ ---
+
+### 🛠️ Installation Steps
+
+1. Fork the project
+2. Clone the forked project
+3. Navigate to the cloned project directory
+4. Install the dependencies with `npm install`
+5. Run `npm run dev` to start the server
+6. Open the browser to visit the website at http://localhost:3000/
+
+---
 
 ## Product Specialization ✔️
 * Mobile Phones
