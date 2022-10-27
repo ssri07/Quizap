@@ -1,5 +1,7 @@
 # Quizap
 
+- View Live Site↗️ https://abdul-quizap.netlify.app
+
 ## Background 💡
 Quizap helps you put your brain to a quick test with variety of quiz questions from several categories, and in different difficulties.  
 
