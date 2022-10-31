@@ -12,7 +12,26 @@ export default function Form({
     visible: { opacity: 1, scale: 1 },
     hidden: { opacity: 0, scale: 0 },
   };
+  
+  const generateApi = useCallback(
+    (amount, category, difficulty, type) => {
+      setGeneratedApi(
+        `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
+      );
+    },
+    [generatedApi]
+  );
 
+  //Update "api" with the value the player chooses.
+  function handleChange(event, label) {
+    const { name, value } = event.target;
+    setApi((prevApi) => ({
+      ...prevApi,
+      [name]: value,
+      categoryLabel: label && label !== "" ? label : prevApi.categoryLabel,
+    }));
+  }
+  generateApi();
   return (
     <form onSubmit={handleSubmit}>
       <motion.div
@@ -89,6 +108,7 @@ export default function Form({
                 id="category"
                 value={api.category}
                 onChange={(e) => {
+                  handleChange();
                   const categoryLabel =
                     e.target.options[e.target.selectedIndex].text;
                   handleChange(e, categoryLabel);
