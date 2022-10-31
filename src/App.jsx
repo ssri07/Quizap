@@ -272,9 +272,8 @@ export default function App() {
   }, [quizNull]);
 
   return (
-    <section className="app bg-[#eff2f9] text-[#293264] h-auto font-inter">
-      {/* Page to show when game hasn't started. */}
-      {!start && (
+    <>
+      {!start ?
         <Start
           cantStart={cantStart}
           startGame={startGame}
@@ -283,10 +282,7 @@ export default function App() {
           handleSubmit={handleSubmit}
           api={api}
         />
-      )}
-
-      {/* Page to show when game starts. */}
-      {start && (
+      :
         <Quiz
           api={api}
           quizNull={quizNull}
@@ -300,7 +296,7 @@ export default function App() {
           playAgain={playAgain}
           goBack={goBack}
         />
-      )}
-    </section>
+      }
+    </>
   );
 }
