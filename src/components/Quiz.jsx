@@ -20,20 +20,6 @@ export default function Quiz({
     hidden: { opacity: 0, scale: 0 },
   };
 
-  function questionElement() {
-    return quizObject.map((question, i) => (
-      <Questions
-        key={question.id}
-        {...question}
-        no={i + 1}
-        pick={toggleIsPicked}
-        update={updatePlayersAnswers}
-        quizzical={quizzical}
-        variants={variants}
-      />
-    ));
-  }
-
   return (
     <section className="quiz container bg-[#f0f4fc] m-auto h-screen shadow-2xl select-none">
       <div className="h-full">
@@ -71,7 +57,17 @@ export default function Quiz({
             }}
             className="h-[70%] flex flex-col overflow-y-auto space-y-5 md:px-20 pt-8"
           >
-            {questionElement()}
+            {quizObject.map((question, i) => (
+      <Questions
+        key={question.id}
+        {...question}
+        no={i + 1}
+        pick={toggleIsPicked}
+        update={updatePlayersAnswers}
+        quizzical={quizzical}
+        variants={variants}
+      />
+    ));}
           </motion.div>
         ) : (
           <div className="h-[70%] flex flex-col justify-center items-center">
@@ -110,15 +106,14 @@ export default function Quiz({
             )}
             {!quizNull ? (
               <div>
-                {!quizzical && (
+                {!quizzical ? (
                   <button
                     onClick={gradePlayer}
                     className="bg-[#4D5B9E] px-4 py-2 text-[#F5F7FB] font-medium text-base leading-5 rounded-lg hover:bg-[#414e91] active:bg-[#394687] focus:outline-none focus:ring focus:ring-[#b0bbf2]"
                   >
                     Check Answers
                   </button>
-                )}
-                {quizzical && (
+                ): (
                   <a
                     href="#main"
                     onClick={playAgain}
